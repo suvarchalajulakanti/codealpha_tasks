@@ -1,0 +1,38 @@
+stock_prices = {
+    "TECH MAHINDRA": 180,
+    "GOOGLE": 250,
+    "INFOSYS": 140,
+    "MICROSOFT": 420,
+    "CODE ALPHA":200
+}
+total = 0
+file1 = open("investment.txt", "w")
+file1.write("Stock Investment Report\n")
+file1.write("-------------------------\n")
+while True:
+    print(", ".join(stock_prices.keys()))
+    stock = input("Enter stock name: ").upper()
+    if stock not in stock_prices:
+        print("Invalid Stock!")
+        choice = input("Do you want to invest in another stock? (yes/no): ").lower()
+        if choice == "yes":
+            continue
+        else:
+            break
+    quantity = int(input("Enter quantity: "))
+    investment = stock_prices[stock] * quantity
+    total += investment
+    print(f"{stock} Investment = {investment}")
+    file1.write(f"{stock} - Quantity: {quantity}, Investment: {investment}\n")
+    choice = input("Add another stock? (yes/no): ").lower()
+    if choice != "yes":
+        break
+file1.write("-------------------------\n")
+file1.write(f"Total Investment = {total}")
+file1.close()
+print("\nTotal Investment =", total)
+print("\nThank for your investment")
+print("Report saved in investment.txt")
+
+
+
