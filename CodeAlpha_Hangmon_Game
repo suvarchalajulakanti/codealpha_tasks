@@ -1,0 +1,29 @@
+import random
+words=["python","programming","computer","coding","algorithm"]
+find=random.choice(words)
+wrg_guess=0
+guess_letters=[]
+final=[]
+for i in range(len(find)):
+    final.append("_")
+print(" ".join(final))
+while wrg_guess<6:
+    flag=False
+    letter=input("guess the letter: ").lower()
+    guess_letters.append(letter)
+    pos=0
+    for i in range(len(find)):
+          if find[i]==letter:
+            pos=i
+            final[i]=letter
+            print(*final)
+            flag=True
+    if not flag:
+      wrg_guess+=1
+      print(*final)
+    if "_" not in final:
+       print("you won")
+       break
+if "_" in final:
+      print("game over")
+      print(find)
