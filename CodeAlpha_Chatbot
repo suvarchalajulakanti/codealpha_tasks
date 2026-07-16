@@ -1,0 +1,15 @@
+print("Welcome to chatbot created by suvarchala")
+while True:
+  msg=input().lower()
+  if msg=="hello" or msg=="hi":
+    print("Hi! good to talk to you")
+  elif msg=="how are you":
+    print("Fine! How about you")
+  elif msg=="i'm fine" or msg=="fine":
+    print("good to know you are also fine")
+  elif msg=="bye" or msg=="exit":
+    print("bye! meet you later")
+    break
+  else:
+    print("I cannot recognize what you are saying")
+
